@@ -1,0 +1,20 @@
+jQuery + js where if next button is pushed then 'current number' increases by one
+
+@keyframes raise_lower {
+  from{heigh}
+  to{top:5px; left:0px;}
+}
+
+.data_bar
+{
+  height:4px;
+  width:20%;
+  background-color: #333;
+  transition: background-color,height 0.2s ease-in-out;
+}
+
+.data_bar.active_data
+{
+  height:8px;
+  background-color:gold;
+}
