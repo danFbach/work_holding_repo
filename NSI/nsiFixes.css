@@ -1,0 +1,47 @@
+/* ======== Layout.css =========
+
+ ========= line 2531 =========
+#container, #footer {
+  width: 100%;
+}
+
+ ========= line 2820 =========
+#mobileCallToAction {
+  display: block;
+  float: right;
+  height: 50px;
+  margin: 25px 0 0;
+  position: absolute;
+  right: 10px;
+  width: 100px;
+}
+ */
+
+/* ======= HomeLayout.css =========
+
+ ========== line 666 =========
+#footerLogo {
+  height: unset;
+  width: 30%;
+} 
+
+ ========== line 659 =========
+ #mobileFooterLogo {
+  display: block;
+  height: 110px;
+  margin: 0 auto;
+  width: auto;
+}
+
+ ========== line 670 =========
+#footerWrap {
+  background: #000000 none repeat scroll 0 0;
+  clear: both;
+  float: left;
+  height: 100%;
+  padding-bottom: 0;
+  width: 100%;
+}
+
+
+*/
