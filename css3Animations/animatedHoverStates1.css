@@ -1,0 +1,592 @@
+/* Original files found @ http://tympanus.net/Tutorials/OriginalHoverEffects/index.html */
+
+/* ============================== Html ==============================
+    <div class="main">
+        <div class="view view-first">
+            <img src="images/1.jpg" />
+            <div class="mask">
+                <h2>Hover Style #1</h2>
+                <p>A wonderful serenity has taken possession of my entire soul, like these sweet mornings of spring which I enjoy with my whole heart.</p>
+                <a href="#" class="info">Read More</a>
+            </div>
+        </div>  
+        <div class="view view-first">
+            <img src="images/2.jpg" />
+            <div class="mask">
+                <h2>Hover Style #1</h2>
+                <p>A wonderful serenity has taken possession of my entire soul, like these sweet mornings of spring which I enjoy with my whole heart.</p>
+                <a href="#" class="info">Read More</a>
+            </div>
+        </div>  
+        <div class="view view-first">
+            <img src="images/3.jpg" />
+            <div class="mask">
+                <h2>Hover Style #1</h2>
+                <p>A wonderful serenity has taken possession of my entire soul, like these sweet mornings of spring which I enjoy with my whole heart.</p>
+                <a href="#" class="info">Read More</a>
+            </div>
+        </div>  
+        <div class="view view-first">
+            <img src="images/4.jpg" />
+            <div class="mask">
+                <h2>Hover Style #1</h2>
+                <p>A wonderful serenity has taken possession of my entire soul, like these sweet mornings of spring which I enjoy with my whole heart.</p>
+                <a href="#" class="info">Read More</a>
+            </div>
+        </div>  
+    </div>
+*/
+ 
+/* ============================== baseStyle ==============================
+    .view {
+        background: #ffffff url("../images/bgimg.jpg") no-repeat scroll center center;
+        border: 10px solid #ffffff;
+        box-shadow: 1px 1px 2px #e6e6e6;
+        cursor: default;
+        float: left;
+        height: 200px;
+        margin: 10px;
+        overflow: hidden;
+        position: relative;
+        text-align: center;
+        width: 300px;
+    }
+    .view .mask, .view .content {
+        height: 200px;
+        left: 0;
+        overflow: hidden;
+        position: absolute;
+        top: 0;
+        width: 300px;
+    }
+    .view img {
+        display: block;
+        position: relative;
+    }
+    .view h2 {
+        background: rgba(0, 0, 0, 0.8) none repeat scroll 0 0;
+        color: #ffffff;
+        font-size: 17px;
+        margin: 20px 0 0;
+        padding: 10px;
+        position: relative;
+        text-align: center;
+        text-transform: uppercase;
+    }
+    .view p {
+        color: #ffffff;
+        font-family: Georgia,serif;
+        font-size: 12px;
+        font-style: italic;
+        padding: 10px 20px 20px;
+        position: relative;
+        text-align: center;
+    }
+    .view a.info {
+        background: #000000 none repeat scroll 0 0;
+        box-shadow: 0 0 1px #000000;
+        color: #ffffff;
+        display: inline-block;
+        padding: 7px 14px;
+        text-decoration: none;
+        text-transform: uppercase;
+    }
+*/
+
+/* ============================== HoverStyle1 - box zoom in + gradient overlay + text slide in from top / bottom & fade ==============================
+    .view-first img {
+        transition: all 0.2s linear 0s;
+    }
+    .view-first .mask {
+        background-color: rgba(219, 127, 8, 0.7);
+        opacity: 0;
+        transition: all 0.4s ease-in-out 0s;
+    }
+    .view-first h2 {
+        opacity: 0;
+        transform: translateY(-100px);
+        transition: all 0.2s ease-in-out 0s;
+    }
+    .view-first p {
+        opacity: 0;
+        transform: translateY(100px);
+        transition: all 0.2s linear 0s;
+    }
+    .view-first:hover img {
+        transform: scale(1.1, 1.1);
+    }
+    .view-first a.info {
+        opacity: 0;
+        transition: all 0.2s ease-in-out 0s;
+    }
+    .view-first:hover .mask {
+        opacity: 1;
+    }
+    .view-first:hover h2, .view-first:hover p, .view-first:hover a.info {
+        opacity: 1;
+        transform: translateY(0px);
+    }
+    .view-first:hover p {
+        transition-delay: 0.1s;
+    }
+    .view-first:hover a.info {
+        transition-delay: 0.2s;
+    }
+*/
+
+/* ============================== HoverStyle2 - gradient fade in over box + text slide in from different directions ==============================
+    .view-second img {
+        transition: all 0.2s ease-in 0s;
+    }
+    .view-second .mask {
+        background-color: rgba(115, 146, 184, 0.7);
+        height: 300px;
+        opacity: 0;
+        padding: 60px;
+        transform: translate(265px, 145px) rotate(45deg);
+        transition: all 0.2s ease-in-out 0s;
+        width: 300px;
+    }
+    .view-second h2 {
+        background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+        margin: 20px 40px 0;
+        transform: translate(200px, -200px);
+        transition: all 0.2s ease-in-out 0s;
+    }
+    .view-second p {
+        transform: translate(-200px, 200px);
+        transition: all 0.2s ease-in-out 0s;
+    }
+    .view-second a.info {
+        transform: translate(0px, 100px);
+        transition: all 0.2s ease-in-out 0.1s;
+    }
+    .view-second:hover .mask {
+        opacity: 1;
+        transform: translate(-80px, -125px) rotate(45deg);
+    }
+    .view-second:hover h2 {
+        transform: translate(0px, 0px);
+        transition-delay: 0.3s;
+    }
+    .view-second:hover p {
+        transform: translate(0px, 0px);
+        transition-delay: 0.4s;
+    }
+    .view-second:hover a.info {
+        transform: translate(0px, 0px);
+        transition-delay: 0.5s;
+    }
+*/
+
+/* ============================== HoverStyle3 - swipe in gradient over box + swipe in textbox ==============================
+    .view-third img {
+        transition: all 0.2s ease-in 0s;
+    }
+    .view-third .mask {
+        background-color: rgba(0, 0, 0, 0.6);
+        opacity: 0;
+        transform: translate(460px, -100px) rotate(180deg);
+        transition: all 0.2s ease-in-out 0.4s;
+    }
+    .view-third h2 {
+        transform: translateY(-100px);
+        transition: all 0.2s ease-in-out 0s;
+    }
+    .view-third p {
+        transform: translateX(300px) rotate(90deg);
+        transition: all 0.2s ease-in-out 0s;
+    }
+    .view-third a.info {
+        transform: translateY(-200px);
+        transition: all 0.2s ease-in-out 0s;
+    }
+    .view-third:hover .mask {
+        opacity: 1;
+        transform: translate(0px, 0px);
+        transition-delay: 0s;
+    }
+    .view-third:hover h2 {
+        transform: translateY(0px);
+        transition-delay: 0.5s;
+    }
+    .view-third:hover p {
+        transform: translateX(0px) rotate(0deg);
+        transition-delay: 0.4s;
+    }
+    .view-third:hover a.info {
+        transform: translateY(0px);
+        transition-delay: 0.3s;
+    }
+*/
+
+/* ============================== HoverStyle4 - zoom box out + twist text in ==============================
+    .view-fourth img {
+        opacity: 1;
+        transition: all 0.4s ease-in-out 0.2s;
+    }
+    .view-fourth .mask {
+        background-color: rgba(0, 0, 0, 0.8);
+        border-radius: 0;
+        opacity: 0;
+        transform: scale(0) rotate(-180deg);
+        transition: all 0.4s ease-in 0s;
+    }
+    .view-fourth h2 {
+        background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+        margin: 20px 40px 0;
+        opacity: 0;
+        transition: all 0.5s ease-in-out 0s;
+    }
+    .view-fourth p {
+        opacity: 0;
+        transition: all 0.5s ease-in-out 0s;
+    }
+    .view-fourth a.info {
+        opacity: 0;
+        transition: all 0.5s ease-in-out 0s;
+    }
+    .view-fourth:hover .mask {
+        opacity: 1;
+        transform: scale(1) rotate(0deg);
+        transition-delay: 0.2s;
+    }
+    .view-fourth:hover img {
+        opacity: 0;
+        transform: scale(0);
+        transition-delay: 0s;
+    }
+    .view-fourth:hover h2, .view-fourth:hover p, .view-fourth:hover a.info {
+        opacity: 1;
+        transition-delay: 0.5s;
+    }
+*/
+
+/* ============================== HoverStyle5 - slide to right ==============================
+    .view-fifth img {
+        transition: all 0.3s ease-in-out 0s;
+    }
+    .view-fifth .mask {
+        background-color: rgba(146, 96, 91, 0.3);
+        opacity: 1;
+        transform: translateX(-300px);
+        transition: all 0.3s ease-in-out 0s;
+    }
+    .view-fifth h2 {
+        background: rgba(255, 255, 255, 0.5) none repeat scroll 0 0;
+        box-shadow: 0 1px 3px rgba(159, 141, 140, 0.5);
+        color: #000000;
+    }
+    .view-fifth p {
+        color: #333333;
+        opacity: 0;
+        transition: all 0.2s linear 0s;
+    }
+    .view-fifth:hover .mask {
+        transform: translateX(0px);
+    }
+    .view-fifth:hover img {
+        transform: translateX(300px);
+    }
+    .view-fifth:hover p {
+        opacity: 1;
+    }
+*/
+
+/* ============================== HoverStyle6 - gradient overlay fade on box + text zoom out to in ==============================
+    .view-sixth img {
+        transition: all 0.4s ease-in-out 0.5s;
+    }
+    .view-sixth .mask {
+        background-color: rgba(146, 96, 91, 0.5);
+        opacity: 0;
+        transition: all 0.3s ease-in 0.4s;
+    }
+    .view-sixth h2 {
+        background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+        margin: 20px 40px 0;
+        opacity: 0;
+        transform: scale(10);
+        transition: all 0.3s ease-in-out 0.1s;
+    }
+    .view-sixth p {
+        opacity: 0;
+        transform: scale(10);
+        transition: all 0.3s ease-in-out 0.2s;
+    }
+    .view-sixth a.info {
+        opacity: 0;
+        transform: translateY(100px);
+        transition: all 0.3s ease-in-out 0.1s;
+    }
+    .view-sixth:hover .mask {
+        opacity: 1;
+        transition-delay: 0s;
+    }
+    .view-sixth:hover img {
+        transition-delay: 0s;
+    }
+    .view-sixth:hover h2 {
+        opacity: 1;
+        transform: scale(1);
+        transition-delay: 0.1s;
+    }
+    .view-sixth:hover p {
+        opacity: 1;
+        transform: scale(1);
+        transition-delay: 0.2s;
+    }
+    .view-sixth:hover a.info {
+        opacity: 1;
+        transform: translateY(0px);
+        transition-delay: 0.3s;
+    }
+*/
+
+/* ============================== HoverStyle7 - spin box out - fade in textbox ==============================
+    .view-seventh img {
+        opacity: 1;
+        transition: all 0.5s ease-out 0s;
+    }
+    .view-seventh .mask {
+        background-color: rgba(77, 44, 35, 0.5);
+        opacity: 0;
+        transform: rotate(0deg) scale(1);
+        transition: all 0.3s ease-out 0s;
+    }
+    .view-seventh h2 {
+        transform: translateY(-200px);
+        transition: all 0.2s ease-in-out 0s;
+    }
+    .view-seventh p {
+        transform: translateY(-200px);
+        transition: all 0.2s ease-in-out 0s;
+    }
+    .view-seventh a.info {
+        transform: translateY(-200px);
+        transition: all 0.2s ease-in-out 0s;
+    }
+    .view-seventh:hover img {
+        opacity: 0;
+        transform: rotate(720deg) scale(0);
+    }
+    .view-seventh:hover .mask {
+        opacity: 1;
+        transform: translateY(0px) rotate(0deg);
+        transition-delay: 0.4s;
+    }
+    .view-seventh:hover h2 {
+        transform: translateY(0px);
+        transition-delay: 0.7s;
+    }
+    .view-seventh:hover p {
+        transform: translateY(0px);
+        transition-delay: 0.6s;
+    }
+    .view-seventh:hover a.info {
+        transform: translateY(0px);
+        transition-delay: 0.5s;
+    }
+*/
+
+/* ============================== HoverStyle8 - slide in from top + bounce ==============================
+    .view-eighth .mask {
+        background-color: rgba(255, 255, 255, 0.7);
+        opacity: 0;
+        top: -200px;
+        transition: all 0.3s ease-out 0.5s;
+    }
+    .view-eighth h2 {
+        transform: translateY(-200px);
+        transition: all 0.2s ease-in-out 0.1s;
+    }
+    .view-eighth p {
+        color: #333333;
+        transform: translateY(-200px);
+        transition: all 0.2s ease-in-out 0.2s;
+    }
+    .view-eighth a.info {
+        transform: translateY(-200px);
+        transition: all 0.2s ease-in-out 0.3s;
+    }
+    .view-eighth:hover .mask {
+        animation: 0.9s linear 0s normal none 1 running bounceY;
+        opacity: 1;
+        top: 0;
+        transition-delay: 0s;
+    }
+    .view-eighth:hover h2 {
+        transform: translateY(0px);
+        transition-delay: 0.4s;
+    }
+    .view-eighth:hover p {
+        transform: translateY(0px);
+        transition-delay: 0.2s;
+    }
+    .view-eighth:hover a.info {
+        transform: translateY(0px);
+        transition-delay: 0s;
+    }
+    @keyframes bounceY {
+        0% {
+            transform: translateY(-205px);
+        }
+        40% {
+            transform: translateY(-100px);
+        }
+        65% {
+            transform: translateY(-52px);
+        }
+        82% {
+            transform: translateY(-25px);
+        }
+        92% {
+            transform: translateY(-12px);
+        }
+        55%, 75%, 87%, 97%, 100% {
+            transform: translateY(0px);
+        }
+    }
+    @keyframes bounceY {
+        0% {
+            transform: translateY(-205px);
+        }
+        40% {
+            transform: translateY(-100px);
+        }
+        65% {
+            transform: translateY(-52px);
+        }
+        82% {
+            transform: translateY(-25px);
+        }
+        92% {
+            transform: translateY(-12px);
+        }
+        55%, 75%, 87%, 97%, 100% {
+            transform: translateY(0px);
+        }
+    }
+    @keyframes bounceY {
+        0% {
+            transform: translateY(-205px);
+        }
+        40% {
+            transform: translateY(-100px);
+        }
+        65% {
+            transform: translateY(-52px);
+        }
+        82% {
+            transform: translateY(-25px);
+        }
+        92% {
+            transform: translateY(-12px);
+        }
+        55%, 75%, 87%, 97%, 100% {
+            transform: translateY(0px);
+        }
+    }
+*/
+
+/* ============================== HoverStyle9 - slide in from corners + twist-in textbox ==============================
+    .view-ninth .mask-1, .view-ninth .mask-2 {
+        background: rgba(119, 0, 36, 0.5) none repeat scroll 0 0;
+        height: 361px;
+        opacity: 1;
+        transition: all 0.3s ease-in-out 0.6s;
+        width: 361px;
+    }
+    .view-ninth .mask-1 {
+        left: auto;
+        right: 0;
+        transform: rotate(56.5deg) translateX(-180px);
+        transform-origin: 100% 0 0;
+    }
+    .view-ninth .mask-2 {
+        bottom: 0;
+        top: auto;
+        transform: rotate(56.5deg) translateX(180px);
+        transform-origin: 0 100% 0;
+    }
+    .view-ninth .content {
+        background: rgba(0, 0, 0, 0.9) none repeat scroll 0 0;
+        height: 0;
+        opacity: 0.5;
+        overflow: hidden;
+        transform: rotate(-33.5deg) translate(-112px, 166px);
+        transform-origin: 0 100% 0;
+        transition: all 0.4s ease-in-out 0.3s;
+        width: 361px;
+    }
+    .view-ninth h2 {
+        background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        margin-top: 5px;
+    }
+    .view-ninth a.info {
+        display: none;
+    }
+    .view-ninth:hover .content {
+        height: 120px;
+        opacity: 0.9;
+        top: 40px;
+        transform: rotate(0deg) translate(0px, 0px);
+        width: 300px;
+    }
+    .view-ninth:hover .mask-1, .view-ninth:hover .mask-2 {
+        transition-delay: 0s;
+    }
+    .view-ninth:hover .mask-1 {
+        transform: rotate(56.5deg) translateX(1px);
+    }
+    .view-ninth:hover .mask-2 {
+        transform: rotate(56.5deg) translateX(-1px);
+    }
+*/
+
+/* ============================== HoverStyle10 - zoom in box + fade in textbox ==============================
+    .view-tenth img {
+        transform: scaleY(1);
+        transition: all 0.7s ease-in-out 0s;
+    }
+    .view-tenth .mask {
+        background-color: rgba(255, 231, 179, 0.3);
+        opacity: 0;
+        transition: all 0.5s linear 0s;
+    }
+    .view-tenth h2 {
+        background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+        color: #333333;
+        margin: 20px 40px 0;
+        opacity: 0;
+        transform: scale(0);
+        transition: all 0.5s linear 0s;
+    }
+    .view-tenth p {
+        color: #333333;
+        opacity: 0;
+        transform: scale(0);
+        transition: all 0.5s linear 0s;
+    }
+    .view-tenth a.info {
+        opacity: 0;
+        transform: scale(0);
+        transition: all 0.5s linear 0s;
+    }
+    .view-tenth:hover img {
+        opacity: 0;
+        transform: scale(10);
+    }
+    .view-tenth:hover .mask {
+        opacity: 1;
+    }
+    .view-tenth:hover h2, .view-tenth:hover p, .view-tenth:hover a.info {
+        opacity: 1;
+        transform: scale(1);
+    }
+*/
